@@ -1,0 +1,13 @@
+﻿@model IEnumerable<RentMgt.Models.Category>
+
+
+@foreach (var category in Model)
+{
+
+    <p class="btn">
+        @Html.ActionLink(category.Name, "Browse", "House", new { Category = category.Name }, null)
+
+    </p>
+
+}
+

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<RentMgt.Models.Item>
+@using PagedList
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "House";
+}
+
+<h2 style="color:darkslategrey;"><img src="https://img.icons8.com/bubbles/50/000000/real-estate.png" />Rental Properties</h2>
+<br />
+<br />
+<table>
+    <tr>
+        <th style="width:300px;position:absolute;top:170px;">
+            <div class="polaroid" style=" height:100px; width:430px;">
+                <form method="get" asp-action="Index" style="padding-top:20px">
+                    <p>
+                        <input type="search" placeholder="Property Title or Location..."
+                               value="@ViewData["GetHouseDetails"]" name="srch" style="border:solid;
+                               border-width:1px;border-radius:2px; width :500px; height:30px" />
+                        <input style="height:30px" type="submit" value="Search" class="btn btn-primary" />
+                    </p>
+                </form>
+
+            </div>
+        </th>
+        <th>
+            <ul>
+                @foreach (var item in Model)
+                {
+                    <div class="polaroid" style="background: #E8DFE0;margin-left:400px; width:700px;">
+                        <table>
+                            <tr>
+                                <th>
+                                    <img style="width:300px; height:200px;" src="@item.ItemArtUrl" />
+                                </th>
+                                <h3>@Html.ActionLink(item.Title, "Details", new { id = item.ItemId })</h3>
+                                <th style="color:darkslategrey;border-spacing: 30px;padding: 30px;">
+                                    <h4>
+                                        <img src="https://img.icons8.com/bubbles/50/000000/bed.png" /> &nbsp;: @item.Features
+                                        <br>
+                                        <img src="https://img.icons8.com/bubbles/50/000000/money.png" />&nbsp;: ₹@item.Price/month
+                                        <br>
+                                        <img src="https://img.icons8.com/bubbles/50/000000/prison.png" />&nbsp;: @item.Area
+                                        <br>
+                                        <img src="https://img.icons8.com/bubbles/50/000000/address.png" />&nbsp;: @item.City
+                                    </h4>
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+                    <br />
+                }
+            </ul>
+        </th>
+    </tr>
+</table>
+<br />
+
+
+
+<style>
+    div.polaroid {
+        width: 523px;
+        padding: 10px 10px 20px 10px;
+        border: 1px solid #BFBFBF;
+        border-color: gainsboro;
+        border-radius: 5px;
+    }
+</style>

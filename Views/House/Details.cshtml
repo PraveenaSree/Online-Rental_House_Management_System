@@ -1,0 +1,104 @@
+﻿@model RentMgt.Models.Item
+@{
+    ViewBag.Title = "Item - " + Model.Title;
+}
+<br>
+<h2 >@Model.Title</h2>
+
+<table>
+    <tr>
+        <th style="padding-left:80px;">
+            <div >
+                <img style="width:500px; height:300px;" alt="@Model.Title" src="@Model.ItemArtUrl" />
+            </div>
+        </th>
+        <em style="text-align: justify;text-justify: inter-word;">@Model.Description</em>
+        <th style="border-spacing: 100px;padding: 100px;">
+            <div class="polaroid2 ">
+                <h4>
+                    Feature : @Model.Features
+                    <br><br>
+                    Rent : ₹@Model.Price/month
+                    <br><br>
+                    Area : @Model.Area
+                    <br><br>
+                    Location : @Model.City
+                </h4>
+                <p class="button1">
+                    @Html.ActionLink("Book this Property", "AddToCart", "BookingCart", new { id = Model.ItemId }, "")
+                </p>
+            </div>
+        </th>
+    </tr>
+</table>
+<br>
+<br>
+<br>
+<div style="background-color:seashell;border-radius:5px;padding: 10px;box-shadow: 5px 10px 18px #888888;">
+    <h3 style="text-align:center; ">Other features</h3>
+
+    <table>
+        <tr>
+            <th style="padding: 10px; text-align:center; padding-left:80px;">
+                Address : @Model.Address
+                <br><br>
+                Number of Floors : @Model.TotalFloor
+            </th>
+            <th style="padding: 10px;text-align:center; padding-left:100px;">
+                Type of Flooring : @Model.Flooring
+                <br><br>
+                Property Age : @Model.PropertyAge (yr)
+            </th>
+            <th style="padding: 10px;text-align:center; padding-left:100px;">
+                Furnishing : @Model.Category.Name
+                <br><br>
+                Available for : @Model.Producer.Name
+            </th>
+        </tr>
+    </table>
+</div>
+<br>
+<br>
+<table>
+    <tr >
+        <th style="font-size:20px; text-align:center;"><em>Contact Owner at <strong>@Model.Email</strong></em></th>
+        <th style="font-size:20px; padding-left:600px;text-align:center;">@Html.ActionLink("Book This Property", "AddToCart", "BookingCart", new { id = Model.ItemId }, "")</th>
+    </tr>
+</table>
+
+<style>
+
+
+    div.polaroid1 {
+        width: 523px;
+        padding: 10px 10px 20px 10px;
+        border: 1px solid #BFBFBF;
+        background-color: white;
+        box-shadow: 5px 10px 18px #888888;
+        border-radius: 5px;
+    }
+
+    div.polaroid2 {
+        text-align: center;
+        width: 323px;
+        padding: 10px 10px 20px 10px;
+        border: 1px solid #BFBFBF;
+        background-color: white;
+        box-shadow: 5px 10px 18px #888888;
+        border-radius: 5px;
+    }
+
+    div.rotate_right {
+        float: left;
+        -ms-transform: rotate(3deg); /* IE 9 */
+        -webkit-transform: rotate(3deg); /* Safari */
+        transform: rotate(3deg);
+    }
+
+    div.rotate_left {
+        float: left;
+        -ms-transform: rotate(-4deg); /* IE 9 */
+        -webkit-transform: rotate(-4deg); /* Safari */
+        transform: rotate(-4deg);
+    }
+</style>

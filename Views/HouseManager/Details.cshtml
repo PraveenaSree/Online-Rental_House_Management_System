@@ -1,0 +1,124 @@
+﻿@model RentMgt.Models.Item
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<br>
+
+<div>
+    
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <br>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <br>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <br>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Features)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Features)
+        </dd>
+        <br>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <br>
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+        <br>
+
+        <dt>
+            Available For
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producer.Name)
+        </dd>
+        <br>
+
+        <dt>
+            Furnishing
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Name)
+        </dd>
+        <br>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area)
+        </dd>
+        <br>
+
+        <dt>
+            Total Floors
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalFloor)
+        </dd>
+        <br>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Flooring)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flooring)
+        </dd>
+        <br>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemArtUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemArtUrl)
+        </dd>
+        <br>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ItemId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

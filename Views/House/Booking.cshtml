@@ -1,0 +1,66 @@
+﻿@model IEnumerable<RentMgt.Models.BookDetail>
+
+
+
+@{
+    ViewBag.Title = "Booking";
+}
+
+
+<h2>Your Booking Status</h2>
+
+<br>
+
+<table class="table">
+    <tr>
+        <th>
+            Property
+        </th>
+        <th>
+            Rent/month
+        </th>
+        <th>
+            Booked Date
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            Owner Contact
+        </th>    
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                ₹@Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookDate)
+            </td>
+            <td>
+                @{ 
+                    if(item.Status==null)
+                    {
+                        item.Status = "Waiting for response";
+                    }
+                }
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Creator)
+            </td>
+            <td>
+                @Html.ActionLink("Cancel Booking", "CancelBooking", new { id = item.BookDetailId })
+            </td>
+            
+        </tr>
+    }
+
+</table>

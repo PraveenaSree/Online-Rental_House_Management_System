@@ -1,0 +1,65 @@
+﻿@model IEnumerable<RentMgt.Models.BookDetail>
+
+
+
+@{
+    ViewBag.Title = "Booking";
+}
+
+
+<h2>Property Booking</h2>
+
+
+<br>
+@Html.ActionLink("Accepted Bookings", "AcceptList")
+<br>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookDate)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookDate)
+            </td>
+
+            <td>
+                @Html.ActionLink("Accept", "Accept", new { id = item.BookDetailId }) |
+                @Html.ActionLink("Reject", "Reject", new { id = item.BookDetailId })
+            </td>
+        </tr>
+    }
+
+</table>
